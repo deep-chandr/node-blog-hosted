@@ -10,6 +10,8 @@ Before starting the server, set the path for mongoDB as
 
 "mongod --port=27017 --dbpath=./data"
 
+Install the modules: "npm install"
+
 Now, start the server using "npm start"
 
 Developer: addictd
