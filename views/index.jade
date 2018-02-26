@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	.container
+		if posts
+			for post,i in posts
+				.container-fluid(style="padding: 50px 0;")
+					h1(style="text-align: right;")
+						a(href="/posts/show/#{post._id}")= post.title
+					p.meta(style="text-align:right;") Posted in 
+						a(href="/category/show/#{post.category}") #{post.category}
+						, by #{post.author} on #{moment(posts.date).format('LL')}
+					p!= Truncatetext(post.body, 400)
+					h5.readmore 
+						a(href="/posts/show/#{post._id}") Read more
+					img.blog_image(src="/images/uploads/#{post.img_address}", style="width:100%;")
+		else
+			h1 No posts to display.

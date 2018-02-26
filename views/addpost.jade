@@ -1,0 +1,36 @@
+extends layout
+
+block content
+	if(errors.length)
+		for err in errors
+			.alert.alert-danger(role='alert')
+				= err
+
+	form(action="/posts/add", method="POST", enctype="multipart/form-data")
+		.form-group
+			label(for='posttitle') Title
+			input.form-control(name='posttitle', type='text', placeholder='Enter title', value='#{posttitle}')
+		.form-group
+			label.mr-sm-2(for='category') Category
+			select.custom-select.mb-2.mr-sm-2.mb-sm-0(name='category')
+				for item, i in category_data
+					option(value='#{item.title}')= item.title
+		.form-group
+			label(for='author') Author
+			input.form-control(name='author', type='text', placeholder='Enter author', value='#{author}')
+		.form-group
+			label(for='postbody') Post Body
+			textarea#editor(name='postbody', value='#{postbody}')
+
+		.form-group
+			label(for='image') Upload Image
+			input.form-control(name='blogimage', type='file', placeholder='Upload image')
+		button.btn.btn-primary(type='submit') Submit
+
+		script(src='/ckeditor/ckeditor.js')
+		script.
+			ClassicEditor
+			.create( document.querySelector( '#editor' ) )
+			.catch( error => {
+			console.error( error );
+			} );

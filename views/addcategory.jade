@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	form(action="/category/add", method="POST")
+		.form-group
+			label(for='newcategory') Enter new category here: 
+			input.form-control(name='newcategory', type='text', placeholder='Enter new category name', required)
+
+		button.btn.btn-primary(type='submit') Add

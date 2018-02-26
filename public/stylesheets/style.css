@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url("../images/bg.png") no-repeat center center fixed; 
+  background-size: cover;
+}
+
+a:hover{
+	text-decoration: none;
+}
+nav{
+	background-color: #F1F1F1;
+	margin:10px 50px;
+	padding:20px 30px;
+
+}
+nav a{
+	text-decoration: none;
+	font: 30px 'Encode Sans Expanded', sans-serif;
+	padding:20px 30px;
+  	color: color:rgb(255, 165, 0);
+
+}
+nav a:hover{
+	text-decoration: none;
+	font: 30px 'Encode Sans Expanded', sans-serif;
+	padding:20px 30px;
+	color:white; 
+	background-color: rgb(255, 168, 0);
+	border-bottom: 8px solid rgb(64, 110, 184);
+}
+.blog_image img{
+	width:100%;
+}
+.meta{
+	float:right;
+}
+.comment{
+	background-color: white;
+	padding: 20px ;
+	border-radius: 1%;
+}
+.each_comment{
+	background-color: rgba(241, 241, 241, .6);
+	border-radius: 20%;
+	margin: 10px 0;
+	line-height: 30px; 
+	padding: 4px 15px 0 15px;
+}
+.comment-name{
+	color: rgb(64, 110, 184);
+	font-size: 150%;
+}
+.comment-time{
+	float:right;
+	font-size: 80%;
+	color: rgb(64, 110, 184);
+}
+.add_comment{
+	margin: 50px 0;
+	padding: 20px;
+}

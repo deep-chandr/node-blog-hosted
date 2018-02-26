@@ -1,0 +1,43 @@
+extends layout
+
+block content
+	.container
+		.container-fluid(style="padding: 50px 0;")
+			h1= posts.title
+			p.meta Posted in 
+				a(href="/category/show/#{posts.category}") #{posts.category} 
+				by #{posts.author} on #{moment(posts.date).format('LL')}
+			img.blog_image(src="/images/uploads/#{posts.img_address}", style="width:100%;")
+			p!= posts.body
+
+		br
+		br
+		if posts.comments
+			.comment
+				h3 Comments
+				for comment in posts.comments
+					.each_comment
+						p
+							span.comment-name #{comment.name} : &nbsp;   
+							span.comment-text #{comment.body}
+							span.comment-time #{moment(comment.date).format('LL')}
+
+
+		.add_comment
+			h3 Add Your Comment
+			if errors
+				for err in errors
+					.alert.alert-danger(role='alert')
+						= err			
+			form(action="/posts/addcomment", method="POST")
+				.form-group
+					label(for='name') Name
+					input.form-control(name='name', type='text', placeholder='Enter your name', required)
+					label(for='email') Email
+					input.form-control(name='email', type='text', placeholder='Enter your email', required)
+					label(for='postbody') Body
+					input.form-control(name='postbody', type='text', placeholder='Enter comment', required)
+					//- This is important
+					input(type='hidden' name='post_id' value='#{posts._id}')
+
+				button.btn.btn-primary(type='submit') Add Comment
