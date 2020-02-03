@@ -1,5 +1,5 @@
 
-const db = require('monk')('localhost:27017/nodeblog');
+const db = require('monk')('mongodb://deep:deep123@ds215219.mlab.com:15219/node_blog');
 
 db.then(() => {
   console.log('Connected correctly to server')

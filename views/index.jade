@@ -13,6 +13,6 @@ block content
 					p!= Truncatetext(post.body, 400)
 					h5.readmore 
 						a(href="/posts/show/#{post._id}") Read more
-					img.blog_image(src="/images/uploads/#{post.img_address}", style="width:100%;")
+					img.blog_image(src="/images/uploads/#{post.img_address}", style="width:100%; max-width: 40%; display: flex; margin: 0 auto;")
 		else
 			h1 No posts to display.
